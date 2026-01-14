@@ -1,3 +1,5 @@
 streamlit
 numpy==1.26.4
 pyarrow==14.0.1
+pandas
+rich
