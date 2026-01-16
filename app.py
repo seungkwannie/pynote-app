@@ -39,6 +39,7 @@ with st.container():
                     "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }
                 st.session_state.notes.append(new_note)
+                st.sidebar.append(new_note)
                 st.success("Note saved successfully!")
             else:
                 st.error("Please provide both a title and content.")
