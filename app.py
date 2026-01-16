@@ -24,6 +24,10 @@ with st.sidebar:
             # Show a snippet of the note as a button/label
             st.info(f"**{note['title']}**\n\n{note['date']}")
 
+    for note in reversed(st.sidebar):
+        with st.expander(f"{note['title']} - {note['date']}"):
+            st.write(note['content'])
+
 # --- MAIN INTERFACE: CREATE NOTE ---
 with st.container():
     title = st.text_input("Note Title", placeholder="e.g., Grocery List")
