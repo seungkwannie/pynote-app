@@ -25,21 +25,15 @@ with st.sidebar:
             st.info(f"**{note['title']}**\n\n{note['date']}")
             if st.button(f"View Note {i+1}"):
                 st.session_state.selected_note = note
-        # Display selected note details
-        if "selected_note" in st.session_state:
-            note = st.session_state.selected_note
-            st.subheader(note['title'])
-            st.write(f"*Date: {note['date']}*")
-            st.write(note['content'])
-        # Divider
-        st.divider()
+                # Display selected note details
+                if "selected_note" in st.session_state:
+                    note = st.session_state.selected_note
+                    st.subheader(note['title'])
+                    st.write(f"*Date: {note['date']}*")
+                    st.write(note['content'])
+                # Divider
+                st.divider()
 
-        # if st.session_state.notes:
-        #     st.subheader("Recent Entries")
-        #     # Display the latest note first
-        #     for note in reversed(st.session_state.notes):
-        #         with st.expander(f"{note['title']} - {note['date']}"):
-        #             st.write(note['content'])
 
 # --- MAIN INTERFACE: CREATE NOTE ---
 with st.container():
