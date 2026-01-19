@@ -26,6 +26,13 @@ with st.sidebar:
             if st.button(f"View Note {i+1}"):
                 st.session_state.selected_note = note
 
+        if st.session_state.notes:
+            st.subheader("Recent Entries")
+            # Display the latest note first
+            for note in reversed(st.session_state.notes):
+                with st.expander(f"{note['title']} - {note['date']}"):
+                    st.write(note['content'])
+
 # --- MAIN INTERFACE: CREATE NOTE ---
 with st.container():
     title = st.text_input("Note Title", placeholder="e.g., Grocery List")
@@ -46,13 +53,13 @@ with st.container():
                 st.error("Please provide both a title and content.")
 
 # --- DISPLAY CURRENT NOTES ---
-st.divider()
-if st.session_state.notes:
-    st.subheader("Recent Entries")
-    # Display the latest note first
-    for note in reversed(st.session_state.notes):
-        with st.expander(f"{note['title']} - {note['date']}"):
-            st.write(note['content'])
+# st.divider()
+# if st.session_state.notes:
+#     st.subheader("Recent Entries")
+#     # Display the latest note first
+#     for note in reversed(st.session_state.notes):
+#         with st.expander(f"{note['title']} - {note['date']}"):
+#             st.write(note['content'])
 
 # git add app.py
 # git commit -m "fixed notes"
