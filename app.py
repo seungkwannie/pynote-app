@@ -28,7 +28,7 @@ with st.sidebar:
                 # Display selected note details
 
                 for notes in reversed(st.session_state.notes):
-                    with st.expander(f"{notes['title']} - {notes['date']}"):
+                    with st.subheader(f"{notes['title']} - {notes['date']}"):
                         st.write(notes['content'])
 
                 # if "selected_note" in st.session_state:
