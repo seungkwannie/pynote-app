@@ -88,7 +88,7 @@ else:
 # --- DISPLAY ALL ENTRIES AT BOTTOM (Optional) ---
 st.divider()
 if st.session_state.notes:
-    st.write("### All Recent Entries")
+    st.subheader("Recent Entries")
     for note in reversed(st.session_state.notes):
         with st.expander(f"{note['title']} - {note['date']}"):
             st.markdown(note['content'])
