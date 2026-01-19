@@ -26,16 +26,20 @@ with st.sidebar:
             if st.button(f"View Note {i+1}"):
                 st.session_state.selected_note = note
                 # Display selected note details
-                if "selected_note" in st.session_state:
-                    note = st.session_state.selected_note
-                    st.subheader(note['title'])
-                    st.write(f"*Date: {note['date']}*")
-                    st.write(note['content'])
-                # Divider
-                st.divider()
 
-            elif st.button(f"View Note {i + 1}"):
-                st.session_state.selected_note = note
+                for notes in reversed(st.session_state.notes):
+                    with st.expander(f"{notes['title']} - {notes['date']}"):
+                        st.write(notes['content'])
+
+                # if "selected_note" in st.session_state:
+                #     note = st.session_state.selected_note
+                #     st.subheader(note['title'])
+                #     st.write(f"*Date: {note['date']}*")
+                #     st.write(note['content'])
+                # # Divider
+                # st.divider()
+
+
 
 
 # --- MAIN INTERFACE: CREATE NOTE ---
